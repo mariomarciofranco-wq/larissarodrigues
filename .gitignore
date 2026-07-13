@@ -1,0 +1,7 @@
+# Images (except placeholders, all downloaded from Unsplash)
+# Keep gitignore minimal for a client site
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
