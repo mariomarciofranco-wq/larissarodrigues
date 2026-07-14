@@ -71,6 +71,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '0px 0px -100px 0px' });
     metricsNums.forEach(el => metricsObserver.observe(el));
 
+    /* ---------- FLOW STEPS OBSERVER ---------- */
+    const flowSteps = document.querySelectorAll('.flow__step');
+    const flowObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const allSteps = entry.target.parentElement.querySelectorAll('.flow__step');
+                allSteps.forEach((s, i) => {
+                    setTimeout(() => s.classList.add('visible'), i * 100);
+                });
+                flowObserver.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '0px 0px -100px 0px', threshold: 0.2 });
+    if (flowSteps.length) flowObserver.observe(flowSteps[0]);
+
+    /* ---------- ENDOLASER CAROUSEL ---------- */
+    (function() {
+        const slides = document.querySelectorAll('.endolaser__slide');
+        const dots = document.querySelectorAll('.endolaser__dot');
+        if (!slides.length) return;
+        let current = 0;
+        let interval;
+
+        function goTo(index) {
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('active');
+            current = (index + slides.length) % slides.length;
+            slides[current].classList.add('active');
+            dots[current].classList.add('active');
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const idx = parseInt(dot.getAttribute('data-index'));
+                goTo(idx);
+                clearInterval(interval);
+                interval = setInterval(() => goTo(current + 1), 4000);
+            });
+        });
+
+        interval = setInterval(() => goTo(current + 1), 4000);
+    })();
+
     /* ---------- FLOATING WORDS ---------- */
     const wordItems = document.querySelectorAll('.words__item');
     const wordObserver = new IntersectionObserver(entries => {

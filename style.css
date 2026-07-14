@@ -916,6 +916,558 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
     margin-top: 4px;
 }
 
+/* ---------- SECTION HEADING (shared) ---------- */
+.section__heading {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600;
+    color: var(--graphite);
+    text-align: center;
+    margin-bottom: 60px;
+    line-height: 1.15;
+}
+.section__heading-accent {
+    font-style: italic;
+    color: var(--olive);
+}
+
+/* ---------- TRANSFORMACAO ---------- */
+.transformacao {
+    padding: 120px 0;
+    background: var(--off-white);
+}
+.transformacao__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.transformacao__card {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--white);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+.transformacao__card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.08);
+}
+.transformacao__image {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+.transformacao__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+.transformacao__card:hover .transformacao__image img {
+    transform: scale(1.08);
+}
+.transformacao__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(44,44,44,0.4) 0%, transparent 50%);
+    opacity: 0;
+    transition: var(--ease);
+}
+.transformacao__card:hover .transformacao__overlay {
+    opacity: 1;
+}
+.transformacao__body {
+    padding: 28px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.transformacao__title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--graphite);
+    margin-bottom: 10px;
+}
+.transformacao__text {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex: 1;
+}
+.transformacao__body .btn {
+    align-self: flex-start;
+}
+
+/* ---------- FLOW (Método Integrativo) ---------- */
+.flow {
+    padding: 120px 0;
+    background: var(--white);
+}
+.flow__track {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.flow__track::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 60px;
+    right: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gray-light), var(--sage), var(--gray-light));
+}
+.flow__step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.flow__step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.flow__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gray-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--sage);
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+}
+.flow__step.visible .flow__icon {
+    background: var(--olive);
+    border-color: var(--olive);
+    color: var(--white);
+    box-shadow: 0 8px 30px rgba(122,138,92,0.25);
+}
+.flow__line { display: none; }
+.flow__label {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--graphite);
+    margin-bottom: 6px;
+}
+.flow__desc {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    max-width: 160px;
+    margin: 0 auto;
+}
+
+/* ---------- SMART (Emagrecimento Inteligente / Capilar) ---------- */
+.smart {
+    padding: 0;
+    background: var(--white);
+}
+.smart__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 550px;
+}
+.smart__image {
+    position: relative;
+    overflow: hidden;
+    min-height: 450px;
+}
+.smart__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    transition: transform 1s ease;
+}
+.smart__image:hover img { transform: scale(1.03); }
+.smart__content {
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--off-white);
+}
+.smart--reverse .smart__content {
+    background: var(--white);
+}
+.smart--reverse .smart__image {
+    order: 2;
+}
+.smart__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--graphite);
+    margin-bottom: 20px;
+    max-width: 480px;
+}
+.smart__text {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 28px;
+    max-width: 460px;
+}
+.smart__list {
+    list-style: none;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.smart__list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--text);
+}
+.smart__list li svg {
+    color: var(--olive);
+    flex-shrink: 0;
+}
+
+/* ---------- BIO (Biomedicina Estética) ---------- */
+.bio {
+    padding: 120px 0;
+    background: var(--white);
+}
+.bio__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.bio__card {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--off-white);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+.bio__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.06);
+}
+.bio__image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+.bio__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+.bio__card:hover .bio__image img {
+    transform: scale(1.06);
+}
+.bio__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(44,44,44,0.15) 0%, transparent 50%);
+}
+.bio__body {
+    padding: 24px 20px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.bio__title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--graphite);
+    margin-bottom: 8px;
+}
+.bio__text {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    flex: 1;
+}
+.bio__body .btn {
+    align-self: flex-start;
+    padding: 10px 28px;
+    font-size: 0.78rem;
+}
+
+/* ---------- ENDOLASER ---------- */
+.endolaser {
+    padding: 120px 0;
+    background: var(--off-white);
+    text-align: center;
+}
+.endolaser__header {
+    margin-bottom: 60px;
+}
+.endolaser__title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 700;
+    color: var(--graphite);
+    line-height: 1;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+}
+.endolaser__subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+.endolaser__carousel {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    position: relative;
+}
+.endolaser__slides {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    background: var(--gray-light);
+}
+.endolaser__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+.endolaser__slide.active {
+    opacity: 1;
+    position: relative;
+}
+.endolaser__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.endolaser__nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+.endolaser__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gray-light);
+    border: none;
+    cursor: pointer;
+    transition: var(--ease);
+}
+.endolaser__dot.active {
+    width: 32px;
+    border-radius: 6px;
+    background: var(--olive);
+}
+.endolaser__disclaimer {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 20px;
+    font-style: italic;
+}
+.endolaser__benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto 48px;
+}
+.endolaser__benefit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 20px;
+    background: var(--white);
+    border-radius: 12px;
+    font-size: 0.88rem;
+    color: var(--text);
+    font-weight: 500;
+    border: 1px solid var(--gray-light);
+    transition: var(--ease);
+}
+.endolaser__benefit:hover {
+    border-color: var(--olive);
+    transform: translateY(-2px);
+}
+.endolaser__benefit svg {
+    color: var(--olive);
+    flex-shrink: 0;
+}
+.endolaser__cta {
+    margin-top: 0;
+}
+
+/* ---------- REALCE ---------- */
+.realce {
+    padding: 0;
+    background: var(--graphite);
+}
+.realce__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+}
+.realce__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
+}
+.realce__text {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.5;
+    max-width: 500px;
+    font-style: italic;
+}
+.realce__image {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+.realce__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+}
+
+/* ---------- RESULTS ---------- */
+.results {
+    padding: 120px 0;
+    background: var(--white);
+}
+.results__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+.results__item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+.results__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+.results__item:hover img {
+    transform: scale(1.06);
+}
+.results__item--wide {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+}
+.results__item--tall {
+    grid-row: span 2;
+    aspect-ratio: 1/2;
+}
+.results__item--video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.results__item--video img {
+    position: absolute;
+    inset: 0;
+}
+.results__play {
+    position: relative;
+    z-index: 1;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--olive);
+    transition: var(--transition);
+}
+.results__item--video:hover .results__play {
+    transform: scale(1.1);
+}
+.results__play svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* ---------- SOCIAL ---------- */
+.social {
+    padding: 100px 0;
+    background: var(--off-white);
+}
+.social__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.social__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 36px 20px;
+    border-radius: var(--radius);
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    transition: var(--transition);
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+}
+.social__link:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+}
+.social__link svg {
+    color: var(--text-light);
+    transition: var(--ease);
+}
+.social__link--instagram:hover { border-color: #e1306c; }
+.social__link--instagram:hover svg { color: #e1306c; }
+.social__link--facebook:hover { border-color: #1877f2; }
+.social__link--facebook:hover svg { color: #1877f2; }
+.social__link--linkedin:hover { border-color: #0a66c2; }
+.social__link--linkedin:hover svg { color: #0a66c2; }
+.social__link--whatsapp:hover { border-color: #25d366; }
+.social__link--whatsapp:hover svg { color: #25d366; }
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1024px) {
     .metrics__grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
@@ -924,6 +1476,25 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
     .about__grid { grid-template-columns: 1fr; gap: 48px; }
     .about__image { max-width: 400px; margin: 0 auto; }
     .about__text { max-width: 100%; }
+    .transformacao__grid { grid-template-columns: repeat(2, 1fr); }
+    .flow__track { flex-direction: column; gap: 32px; max-width: 400px; }
+    .flow__track::before { display: none; }
+    .flow__step { display: flex; align-items: center; gap: 20px; text-align: left; }
+    .flow__icon { margin: 0; width: 52px; height: 52px; }
+    .flow__desc { margin: 0; }
+    .smart { grid-template-columns: 1fr; }
+    .smart__grid { grid-template-columns: 1fr; }
+    .smart__image { min-height: 350px; }
+    .smart__content { padding: 60px 40px; }
+    .smart--reverse .smart__image { order: 0; }
+    .bio__grid { grid-template-columns: repeat(2, 1fr); }
+    .endolaser__benefits { grid-template-columns: repeat(2, 1fr); }
+    .realce__grid { grid-template-columns: 1fr; }
+    .realce__content { padding: 60px 40px; }
+    .results__grid { grid-template-columns: repeat(2, 1fr); }
+    .results__item--wide { grid-column: span 2; aspect-ratio: 2/1; }
+    .results__item--tall { grid-row: span 1; aspect-ratio: 1; }
+    .social__grid { grid-template-columns: repeat(2, 1fr); max-width: 500px; }
     .split { grid-template-columns: 1fr; }
     .split__image { min-height: 400px; }
     .split__content { padding: 60px 40px; }
@@ -941,6 +1512,24 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 }
 
 @media (max-width: 768px) {
+    .section__heading { margin-bottom: 36px; }
+    .transformacao__grid { grid-template-columns: 1fr; }
+    .transformacao { padding: 80px 0; }
+    .flow { padding: 80px 0; }
+    .flow__track { gap: 24px; }
+    .flow__icon { width: 44px; height: 44px; }
+    .flow__icon svg { width: 18px; height: 18px; }
+    .flow__label { font-size: 0.9rem; }
+    .bio { padding: 80px 0; }
+    .bio__grid { grid-template-columns: 1fr; gap: 16px; }
+    .endolaser { padding: 80px 0; }
+    .endolaser__benefits { grid-template-columns: 1fr; }
+    .results { padding: 80px 0; }
+    .results__grid { grid-template-columns: 1fr; gap: 3px; }
+    .results__item--wide { grid-column: span 1; aspect-ratio: 1; }
+    .social { padding: 80px 0; }
+    .social__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .social__link { padding: 24px 16px; font-size: 0.82rem; }
     .nav__links {
         position: fixed;
         top: 0;
