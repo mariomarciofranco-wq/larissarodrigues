@@ -1247,20 +1247,17 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 }
 .endolaser__grid-item {
     border-radius: var(--radius);
-    overflow: hidden;
     background: var(--beige);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    line-height: 0;
 }
 .endolaser__grid-item img {
     width: 100%;
     height: auto;
-    display: block;
+    border-radius: var(--radius);
     transition: transform 0.8s ease;
 }
 .endolaser__grid-item:hover img {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 .endolaser__disclaimer {
     grid-column: 1 / -1;
