@@ -1464,6 +1464,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
     .smart__content { padding: 60px 40px; }
     .smart--reverse .smart__image { order: 0; }
     .bio__grid { grid-template-columns: repeat(2, 1fr); }
+    .endolaser__grid { grid-template-columns: repeat(2, 1fr); }
     .endolaser__benefits { grid-template-columns: repeat(2, 1fr); }
     .realce__grid { grid-template-columns: 1fr; }
     .realce__content { padding: 60px 40px; }
@@ -1499,6 +1500,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
     .bio { padding: 80px 0; }
     .bio__grid { grid-template-columns: 1fr; gap: 16px; }
     .endolaser { padding: 80px 0; }
+    .endolaser__grid { grid-template-columns: 1fr; max-width: 500px; }
     .endolaser__benefits { grid-template-columns: 1fr; }
     .results { padding: 80px 0; }
     .results__grid { grid-template-columns: 1fr; gap: 3px; }
